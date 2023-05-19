@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div id="container" [ngClass]="{'dark': isDark}">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    class="input-search"
+    placeholder="Found Movie"
+  />
+  <button class="btn-search" (click)="handleSearch(searchText)">Search</button>
+  <div class="wrapper-change">
+    <div class="change-item" (click)="changeTypeMovie()">Movie</div>
+    <div class="change-item" (click)="changeTypeTV()">Tv</div>
+</div>
+
+  <div *ngIf="movieBySearch" style="margin-bottom: 20px;">
+    <div class="grid wide">
+      <div class="row">
+        <div class="container" *ngFor="let movie of movieBySearch">
+          <div class="container-item">
+            <div class="l-3 m-4 c-6">
+              <a [routerLink]="['/movie', movie.id]">
+                <app-movie-item
+                  [image]="movie.backdrop_path ? movie.backdrop_path : ''"
+                  [title]="movie.name || movie.title"
+                  [year]="movie.release_date || movie.first_air_date"
+                ></app-movie-item>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper-button">
+    <button *ngFor="let pageNum of listNumber" (click)="getPage(pageNum)">
+      {{ pageNum }}
+    </button>
+  </div>
+</div>
+<app-footer></app-footer>

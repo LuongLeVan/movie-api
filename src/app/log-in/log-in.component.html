@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="container-form" >
+        <form class="sign-in-form" #signInForm="ngForm" (ngSubmit)="onSubmit()">
+          <h2>Login Form</h2>
+          <div style="margin-top: 100px;">
+            <div class="row-control">
+                <input class="input" matInput placeholder="Username" required [(ngModel)]="userName" name="username" #username="ngModel"
+                  >
+            
+             
+            </div>
+            <div class="row-control">
+                <input
+                type="{{ isShow ? 'text' : 'password' }}"
+                matInput
+                placeholder="Password"
+                required
+                [(ngModel)]="password"
+                name="password"
+            
+            
+                >     
+                <span *ngIf="isShow" class="icon" (click)="isShow = !isShow"><i class="fas fa-eye"></i></span>
+                <span *ngIf="!isShow" class="icon" (click)="isShow = !isShow"><i class="fas fa-eye-slash"></i></span>
+            </div>
+
+            
+         
+            <div class="row-control row-actions">
+              <button class="button-sign" style="background-color: aqua; color: #fff;" mat-raised-button color="primary" type="submit">Sign
+                in</button>
+                <div class="login">
+                    <a routerLink="/sign-up">Haven't account ?</a> 
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+</div>
+<app-footer></app-footer>

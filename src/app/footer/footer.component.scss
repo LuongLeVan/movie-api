@@ -1,0 +1,54 @@
+@import '../grid.scss';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    min-height: 260px;
+    background-image: url('../assets/footer-bg.jpg');
+    background-size: contain;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.footer-item > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    &:hover {
+        opacity: 0.8;
+        color: #ff1b01;
+    }
+}
+.footer-item {
+    margin: 12px 0;
+}
+.container {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+.container__social {
+    display: flex;
+    justify-content: center;
+    .footer-item {
+        margin: 0 8px;
+        color: #fff;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+    }
+}
+
+h3{
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+span > i {
+    font-size: 32px;
+}
+.wrapper{
+   
+}

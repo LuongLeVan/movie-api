@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+    <div class='background' style="background-image: url(https://image.tmdb.org/t/p/w300{{detailMovie.backdrop_path}});" >
+        <div class='container__heading'>
+            <img class='heading__poster' src="https://image.tmdb.org/t/p/w300{{detailMovie.backdrop_path}}" alt="poster" style="height: 400px; width: 300px; " />
+            <div class='heading__container-content'>
+                <h2 class='heading__title__movie'>{{detailMovie.title || detailMovie.name}}</h2>
+                <div class='heading__overview__movie'>{{detailMovie.overview}}</div>
+            </div>
+        </div>
+        <div class="icon-favorite" [ngClass]="isClick ? 'change' : '' " (click)="handleFavorite(detailMovie, detailMovie.id)"><i class="fa fa-heart" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="actorList" style="margin-top: 200px;">
+        <div  style="display: flex;">
+            <div *ngFor="let actor of actorList" class="actorList actorItem"> 
+                <div><img class="image" [src]="actor.profile_path ? 'https://image.tmdb.org/t/p/w300/' + actor.profile_path : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"  alt="poster" /></div>
+               <div style="text-align: center; font-size: 16px;">
+                <div style="font-weight: 600;">{{actor.character}} </div>
+                 <div>({{actor.original_name}})</div>
+               </div>
+               
+            </div>
+        </div>
+
+       
+          
+    </div>
+    <div style=" margin-top: 300px; margin-bottom: 200px; color: white ">
+        <h3 style="color: BLACK;">TRAILER</h3>
+        
+        <div class='container__clip'>
+            <app-iframe></app-iframe>
+            
+        </div>
+        
+    </div>
+<h2>SIMILAR</h2>
+<div class="grid wide">
+    <div class="row">
+        <div class="similar" *ngFor="let movie of similarList">
+            <div class="l-3 m-4 c-6" >
+                <a [routerLink]="['/movie', movie.id]">
+                    <app-movie-item
+                      [image]="movie.backdrop_path"
+                      [title]="movie.name || movie.title"
+                      [year]="movie.release_date || movie.first_air_date"
+                    ></app-movie-item>
+                  </a>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

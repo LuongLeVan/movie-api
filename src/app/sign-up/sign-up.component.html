@@ -1,0 +1,120 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="container-form" onload="myFunc()">
+    <form
+      class="sign-in-form"
+      #signInForm="ngForm"
+      (ngSubmit)="onSubmit(signInForm)"
+    >
+      <h2>Signup Form</h2>
+      <div style="margin-top: 40px">
+        <div class="row-control">
+          <input
+            class="input"
+            type="text"
+            matInput
+            placeholder="Username"
+            required
+            [(ngModel)]="userName"
+            name="username"
+            #username="ngModel"
+            minlength="6"
+            maxlength="32"
+            pattern="[a-zA-Z0-9]*"
+          />
+
+          <mat-error
+            *ngIf="username.invalid && (username.dirty || username.touched)"
+          >
+            <mat-error *ngIf="username.errors?.['required']"
+              >Username is required.</mat-error
+            >
+            <mat-error *ngIf="username.errors?.['minlength']"
+              >Username cannot shorter than 6 characters.</mat-error
+            >
+            <mat-error *ngIf="username.errors?.['maxlength']"
+              >Username cannot be longer than 32 characters.</mat-error
+            >
+            <mat-error *ngIf="username.errors?.['pattern']"
+              >Username can only contain letters and numbers.</mat-error
+            >
+          </mat-error>
+        </div>
+
+        <div class="row-control">
+          <input
+            type="{{ isShow ? 'text' : 'password' }}"
+            matInput
+            placeholder="Password"
+            required
+            minlength="6"
+            maxlength="32"
+            [pattern]="passwordPattern"
+            [(ngModel)]="password"
+            name="password"
+          />
+          <span
+            *ngIf="isShow"
+            class="icon"
+            (click)="isShow = !isShow"
+            ><i class="fas fa-eye"></i
+          ></span>
+          <span
+            *ngIf="!isShow"
+            class="icon"
+            (click)="isShow = !isShow"
+            ><i class="fas fa-eye-slash"></i
+          ></span>
+        </div> 
+        
+        
+
+        <div class="row-control">
+          <input
+            type="{{ isShowRePass ? 'text' : 'password' }}"
+            matInput
+            placeholder="Retype Password"
+            required
+            minlength="6"
+            maxlength="32"
+            [pattern]="rePasswordPattern"
+            [(ngModel)]="retypePassword"
+            name="password"
+          />
+          <span
+            *ngIf="isShowRePass"
+            class="icon"
+            (click)="isShowRePass = !isShowRePass"
+            ><i class="fas fa-eye"></i
+          ></span>
+          <span
+            *ngIf="!isShowRePass"
+            class="icon"
+            (click)="isShowRePass = !isShowRePass"
+            ><i class="fas fa-eye-slash"></i
+          ></span>
+        </div> 
+
+        <input class='input-form' #fileInput type="file" accept="image/png, image/gif, image/jpeg" [(ngModel)]="imageUrl" />
+        <div class="row-control row-actions">
+          <button
+            class="button-sign"
+            style="background-color: aqua; color: #fff"
+            mat-raised-button
+            color="primary"
+            type="submit"
+          >
+            Sign in
+          </button>
+          <div class="login">
+            <a routerLink="/log-in">Haven account yet ?</a>
+          </div>
+
+        
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

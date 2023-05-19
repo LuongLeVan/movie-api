@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="grid wide">
+    <div class="row">
+      <div *ngFor="let movie of movieList">
+        <div class="container-item">
+          <div class="l-3 m-4 c-6">
+            <a [routerLink]="['/movie', movie.id]">
+              <app-movie-item
+                [image]="movie.backdrop_path"
+                [title]="movie.name || movie.title"
+                [year]="movie.release_date || movie.first_air_date"
+                [mark]="movie.vote_average"
+              ></app-movie-item>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper-button">
+  <button *ngFor="let pageNum of listNumber" (click)="getPage(pageNum)">
+    {{ pageNum }}
+  </button>
+</div>
+<app-footer></app-footer>

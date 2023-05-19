@@ -1,0 +1,99 @@
+@import '../grid.scss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.container__clip {
+    width: 100%;
+    height: 600px;
+
+    text-align: center;
+}
+
+.container__heading {
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 100px;
+    position: absolute;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.heading__poster {
+    border-radius: 12px;
+    margin-right: 6px;
+}
+
+.heading__container-content {
+    margin-left: 12px;
+}
+
+.heading__title__movie {
+    text-transform: uppercase;
+}
+
+.background {
+    width: 100%;
+    height: 50vh;
+    background-position: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 2000px rgba(42, 42, 42, 0.3);
+
+
+}
+
+.container__clip {
+    margin-top: 20px;
+}
+
+.container__content {
+    width: 80%;
+    height: 100%;
+}
+.icon > i {
+    color: black;
+    font-size: 16px;
+  }
+  .image{
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  .background{
+    position: relative;
+  }
+  .icon-favorite{
+    position: absolute;
+    top: 120%;
+    right: 20%;
+    i{
+        font-size: 48px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+  }
+.change{
+    color: red;
+}
+.heading__overview__movie{
+    margin-top: -20px;
+}
+.heading__title__movie{
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+.heading__container-content{
+    margin: 0 20px;
+}
+.actorItem{
+    margin:  0 8px;
+}

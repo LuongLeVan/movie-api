@@ -1,0 +1,8 @@
+<div class=wrapper >
+
+    <!-- "https://image.tmdb.org/t/p/w300{{image}} " -->
+    
+      <img class="image" style="width:200px;height:300px"  [src]="image ? 'https://image.tmdb.org/t/p/w300/' + image : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"  alt="poster" />
+      <span class="mark">{{mark === 0 ? 7.5 : mark.toString().slice(0, 3)}}</span>
+      <h3 class=title>{{title}} ({{year.slice(0,4)}})</h3>
+  </div>

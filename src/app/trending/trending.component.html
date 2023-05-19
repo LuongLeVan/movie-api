@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="grid wide">
+  <div class="row">
+    <div *ngFor="let movie of trendingList">
+      <div class="container-item">
+        <div class="l-3 m-4 c-6">
+          <a [routerLink]="['/movie', movie.id]">
+            <app-movie-item
+              [image]="movie.backdrop_path"
+              [title]="movie.name || movie.title"
+              [year]="movie.release_date || movie.first_air_date"
+              [mark]="movie.vote_average"
+            ></app-movie-item>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="onChanged()">{{ page }}</button>
+<app-paginator
+  [totalItems]="10"
+  [pageSize]="20"
+  [pageSizeOptions]="[20]"
+  (pageChanged)="onPageChanged($event)"
+></app-paginator>
+<app-footer></app-footer>
